@@ -16,3 +16,20 @@ alert("Hello world 2");
 console.log("Hello world 3");
 
 document.write({name:"John"})
+
+*********
+VARIABLES
+*********
+--let;
+let log = console.log;
+log(name) ==> undefined
+
+--const name = "Paul"; cannot be reassigned
+--var is the same as let
+
+*******
+NUMBERS
+*******
+integers and decimals
+Les nombres sont en bleu et les
+chaînes de caractères en noir. 
