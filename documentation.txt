@@ -1,0 +1,18 @@
+*****************
+3 ways to code JS
+*****************
+Inline, internal, external.
+
+Place the internal code after the HTML !
+Internal code affects the only page where it stands.
+The call to the external code can also be in the 
+"HEAD" with a "defer" mention.
+
+*********
+3 helpers
+*********
+document.write("Hello world 1");
+alert("Hello world 2");
+console.log("Hello world 3");
+
+document.write({name:"John"})
