@@ -33,3 +33,82 @@ NUMBERS
 integers and decimals
 Les nombres sont en bleu et les
 chaînes de caractères en noir. 
+
+- Ex1
+let variable = 40;
+variable += 5;
+variable++;
+
+log(variable);  //  46
+
+-Ex2
+let num1 = "10";
+let num2 = "32";
+
+let add = num1 + num2;
+log(add);       // 1032
+
+let sub = num1 - num2;
+log(sub);       -22
+
+**********
+DATA TYPES
+**********
+Primitive:
+String, Number, Boolean, Null, Undefined, Symbol
+
+Object:
+Arrays, Functions, Objects
+
+- Ex1
+const log = console.log;
+
+let texte = "Ceci est un essai";
+log(typeof texte); //string
+log(typeof true);  //boolean
+
+******
+ARRAYS
+******
+-Ex1
+const friends = ["john", "peter", "bob", "suzy", 45, undefined, null];
+
+log(friends[6]); //null
+
+let bestFriend = friends[3];
+log(bestFriend); //suzy
+
+friends[4] = "ANNA";
+log(friends);
+// ["john", "peter", "bob", "suzy", "ANNA", undefined, null];
+
+****************
+DECLARE - INVOKE
+****************
+//Declare
+function hello() {
+  log("Hello there Bob");
+  log("Hello there Anna");
+  log("Hello there Suzy");
+}
+//Invoke
+hello();
+
+**********************
+PARAMETERS - ARGUMENTS
+**********************
+    Parameters are placeholders or variables
+and arguments are values for these variables.    
+
+-Ex1
+function greet(name) {
+  let yourName = name;
+  log("hello " + yourName);
+}
+
+greet("Paul");  //hello Paul
+
+//OU
+
+let fname = "Peter";
+greet(fname);   //hello Peter
