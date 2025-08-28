@@ -101,14 +101,80 @@ PARAMETERS - ARGUMENTS
 and arguments are values for these variables.    
 
 -Ex1
-function greet(name) {
+function greet(name) {  //Paramètre
   let yourName = name;
   log("hello " + yourName);
 }
 
-greet("Paul");  //hello Paul
+greet("Paul");  // Argument - hello Paul
 
 //OU
 
 let fname = "Peter";
 greet(fname);   //hello Peter
+
+*******************
+FUNCTION EXPRESSION
+*******************
+L'idée consiste à affecter une fonction à 
+une variable et à utiliser cette variable
+pour "invoker" la fonction.
+
+-Ex1
+function addition(para1, para2) {
+  return para1 + para2;
+} 
+
+log(addition(5, 6));  //11
+
+let add = function addition(para1, para2) {
+  return para1 + para2;
+};
+
+log(add(21, 4));function addition(para1, para2) {
+  return para1 + para2;
+} 
+
+log(addition(5, 6));  //11
+
+let add = function addition(para1, para2) {
+  return para1 + para2;
+};
+
+log(add(21, 4));   function addition(para1, para2) {
+  return para1 + para2;
+} 
+
+log(addition(5, 6));  //11
+
+let add = function addition(para1, para2) {
+  return para1 + para2;
+};
+
+log(add(21, 4));    //25
+
+   Le nom de la fonction (addition) peut être
+omis lors de l'assignation de la fonction
+addition à la variable add. On parle de fonction
+anonyme.
+
+-Ex2
+multiply= (num1, num2) => (num1 * num2);
+
+*******
+OBJECTS
+*******
+const person = {
+  name: "John", //property & value
+  lastName: "Peters",
+  age: 42,
+  education: false,
+  married: true,
+  siblings: ["anna", "susan", "peter"],
+  greeting: function () {
+    log("Hello my name is JOHN");
+  },
+};
+
+log(person.name);
+
