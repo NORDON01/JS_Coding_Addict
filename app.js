@@ -1,20 +1,12 @@
 const log = console.log;
 
-const car = {
-  make: "Peugeot",
-  model: 604,
-  year: 2018,
-  colors: ["blue", "silver"],
-  hybrid: true,
-  drive: function () {
-    log("This car is runing fast");
-  },
-  stop: function () {
-    log("The car is parked");
-  },
-};
+num1 = 6;
+log(num1 + " is a " + typeof num1);
+num2 = "6";
+log(num2 + " is a " + typeof num2);
 
-log(car.make);
-log(car.colors[0]);
-car.drive();
-car.stop();
+let value = num1 == num2;
+log(value + " num1 equals num2");
+
+value = num1 === num2;
+log(value + " num1 & num2 are not the same type");
