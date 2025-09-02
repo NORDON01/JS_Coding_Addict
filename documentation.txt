@@ -1,0 +1,493 @@
+
+/*==================== J A V A S C R I P T ====================*/
+
+*****************
+3 ways to code JS
+*****************
+Inline, internal, external.
+
+Place the internal code after the HTML !
+Internal code affects the only page where it stands.
+The call to the external code can also be in the 
+"HEAD" with a "defer" mention.
+
+*********
+3 helpers
+*********
+document.write("Hello world 1");
+alert("Hello world 2");
+console.log("Hello world 3");
+
+document.write({name:"John"})
+
+*********
+VARIABLES
+*********
+--let;
+let log = console.log;
+log(name) ==> undefined
+
+--const name = "Paul"; cannot be reassigned
+--var is the same as let
+
+*******
+NUMBERS
+*******
+integers and decimals
+Les nombres sont en bleu et les
+chaînes de caractères en noir. 
+
+- Ex1
+let variable = 40;
+variable += 5;
+variable++;
+
+log(variable);  //  46
+
+-Ex2
+let num1 = "10";
+let num2 = "32";
+
+let add = num1 + num2;
+log(add);       // 1032
+
+let sub = num1 - num2;
+log(sub);       -22
+
+**********
+DATA TYPES
+**********
+Primitive:
+String, Number, Boolean, Null, Undefined, Symbol
+
+Object:
+Arrays, Functions, Objects
+
+- Ex1
+const log = console.log;
+
+let texte = "Ceci est un essai";
+log(typeof texte); //string
+log(typeof true);  //boolean
+
+******
+ARRAYS
+******
+-Ex1
+const friends = ["john", "peter", "bob", "suzy", 45, undefined, null];
+
+log(friends[6]); //null
+
+let bestFriend = friends[3];
+log(bestFriend); //suzy
+
+friends[4] = "ANNA";
+log(friends);
+// ["john", "peter", "bob", "suzy", "ANNA", undefined, null];
+
+****************
+DECLARE - INVOKE
+****************
+//Declare
+function hello() {
+  log("Hello there Bob");
+  log("Hello there Anna");
+  log("Hello there Suzy");
+}
+//Invoke
+hello();
+
+**********************
+PARAMETERS - ARGUMENTS
+**********************
+    Parameters are placeholders or variables
+and arguments are values for these variables.    
+
+-Ex1
+function greet(name) {  //Paramètre
+  let yourName = name;
+  log("hello " + yourName);
+}
+
+greet("Paul");  // Argument - hello Paul
+
+//OU
+
+let fname = "Peter";
+greet(fname);   //hello Peter
+
+*******************
+FUNCTION EXPRESSION
+*******************
+L'idée consiste à affecter une fonction à 
+une variable et à utiliser cette variable
+pour "invoker" la fonction.
+
+-Ex1
+function addition(para1, para2) {
+  return para1 + para2;
+} 
+
+log(addition(5, 6));  //11
+
+let add = function addition(para1, para2) {
+  return para1 + para2;
+};
+
+log(add(21, 4));function addition(para1, para2) {
+  return para1 + para2;
+} 
+
+log(addition(5, 6));  //11
+
+let add = function addition(para1, para2) {
+  return para1 + para2;
+};
+
+log(add(21, 4));   function addition(para1, para2) {
+  return para1 + para2;
+} 
+
+log(addition(5, 6));  //11
+
+let add = function addition(para1, para2) {
+  return para1 + para2;
+};
+
+log(add(21, 4));    //25
+
+   Le nom de la fonction (addition) peut être
+omis lors de l'assignation de la fonction
+addition à la variable add. On parle de fonction
+anonyme.
+
+-Ex2
+multiply= (num1, num2) => (num1 * num2);
+
+*******
+OBJECTS
+*******
+const person = {
+  name: "John",       //property & value
+  lastName: "Peters",
+  age: 42,
+  education: false,
+  married: true,
+  siblings: ["anna", "susan", "peter"],
+  greeting: function () {     //method
+    log("Hello my name is JOHN");
+  },
+};
+
+log(person.name);
+
+**********************
+CONDITIONAL STATEMENTS
+**********************
+   >, <, >=, <=, ==, ===, !=, !===
+
+Syntaxe:
+if(condition) {faire 1}
+else {faire 2}
+
+-Ex1
+const value1 = 2 > 1;
+const value2 = 1 > 2;
+
+if (value2) {
+  log("Cette proposition est vraie");
+} else {
+  log("Cette proposition est fausse");
+}   //Cette proposition est fausse  
+
+-Ex2
+const num1 = 8;
+const num2 = 7;
+
+if (num1 > num2) {
+  log("num1 est supérieur à num2");
+} else if (num1 < num2) {
+  log("num1 est inférieur à num2");
+} else {
+  log("num1 et num2 sont égaux");
+}
+//num1 est supérieur à num2
+
+********
+EQUALITY
+********
+num1 = 6;
+log(num1 + " is a " + typeof num1);
+num2 = "6";
+log(num2 + " is a " + typeof num2);
+
+let value = num1 == num2;
+log(value + " num1 equals num2");
+
+value = num1 === num2;
+log(value + " num1 & num2 are not the same type");
+
+*****************
+LOGICAL OPERATORS
+*****************
+|| - OR; && - AND
+
+******
+SWITCH
+******
+
+let dice = "A";
+switch (dice) {
+  case 1: {
+    log("You got the 1");
+    break;
+  }
+  case 2: {
+    log("You got the 2");
+    break;
+  }
+  case 3: {
+    log("You got the 3");
+    break;
+  }
+  default: {
+    log("You did not roll the dice ");
+    break;
+  }
+}     //You did not roll the dice
+
+*****
+LOOPS
+*****
+==> while loop
+You need to create an escape condition 
+within the loop !
+
+Syntax:
+while{
+
+}
+   The condition is tested first (before the
+  code)
+
+==> do while loop
+Syntax:
+do{
+ code
+}
+
+while(condition)
+ The condition is tested after the code;
+ The code will be executed at least once.
+
+==>for loop
+for (let i = 0; i < 10; i++) {
+  log(i);
+}
+
+/*==================== J S  C O N T I N U E D ====================*/
+
+***************************
+STRING PROPERTIES & METHODS
+***************************
+js string methods:
+https://www.w3schools.com/js/js_string_methods.asp
+
+OU mozilla:
+
+https://developer.mozilla.org/en-US/
+puis Javascript puis Standard built-in objects
+puis String
+
+-Ex1
+//Properties
+let text = "  Peter Jordan ";
+log(text.length); //12
+//Methods
+let result = text.toLowerCase();
+log(result);
+result = text.toUpperCase();
+log(result);
+result = text.charAt(2);
+log(result); //t
+log(text.charAt(text.length - 1)); //Donne le dernier caractère: n
+log(text.indexOf("P")); //0
+
+text = "  Peter Jordan "; //Supprime les blancs autour
+result = text.trim();
+log(result);                    //Peter Jordan
+
+log(text.startsWith("peter")); //false
+log(text.includes("eter"));    //true
+log(text.slice(0, 2))          //"Pe"
+
+*****************
+TEMPLATE LITERALS
+*****************
+-Ex1
+const fname = "John";
+const age = 25;
+
+let value = `Hey here is ${fname} and he is 
+${age} years old. And here is some simple math ${4 + 4}`;
+
+log(value);
+
+-Ex2
+function expression:
+const fullName = (fname, lname) => {
+  let result = `${fname} ${lname}`;
+  result.toUpperCase();
+  return result;
+};
+invoke function:
+log(fullName("Georges", "NORDON"));
+log(fullName("NORDON", "Georges"));
+
+**************************
+ARRAY PROPERTIES & METHODS
+**************************
+//length
+let names = ["John", "Bobo", "Mary", "Olga", "Ben"];
+log("Length: " + names.length);
+let lastItem = names[names.length - 1];
+log("Last item: " + lastItem);
+
+//concat
+let lastNames = ["pepper", "onion", "banana"];
+let fullNames = names.concat(lastNames);
+log(fullNames);
+
+//reverse
+log(fullNames.reverse());
+
+//unshift(Add at the beginning of the array)
+fullNames.unshift("Toto");
+log(fullNames);
+
+//shift (remove the first item)
+fullNames.shift();
+log(fullNames);
+
+//push(Add at the end)
+fullNames.push("Toto");
+log(fullNames);
+
+//pop(Remove from the end)
+fullNames.pop();
+log(fullNames);
+
+//splice - mutates the original array
+log(fullNames);
+let tranche = fullNames.splice(2, 2);
+log(tranche);
+log(fullNames);
+
+******************
+VALUE VS REFERENCE
+******************
+When using a primitive type (String, integer...) 
+and changing the value of a copy of the 
+original, any change will affect the copy
+(not the original).
+
+When using a non primitive type (Array, 
+function, object) any change of the copy
+will also change the original.
+
+
+******************
+NULL AND UNDEFINED
+******************
+undefined: a value, arguments or properties are missing.
+null: a choice of the programmer.
+
+**************
+TRUTHY & FALSY
+**************
+"",'',``, 0, -0, NaN,
+false, null, undefined
+Autant de termes qui peuvent être falsy si la syntaxe
+est mauvaise.
+Par défaut, les expressions sont truthy.
+
+****************
+TERNARY OPERATOR
+****************
+unary operator
+binary operator
+ternary operator
+
+Another way of writing "if...else":
+value ? (runs if true) : (runs if false);
+
+-Ex1
+let valeur = 4 < 3 ;
+
+valeur ? log('Valeur est plutôt vraie'): 
+log('Valeur est assez fausse') // Valeur est assez fausse
+
+***************************************
+GLOBAL SCOPE & LOCAL SCOPE OF VARIABLES
+***************************************
+Local scope : code within {} braces.
+Global scope: code outside of such blocks.
+Beware of name collisions and about modifying
+a global variable by mistake.
+
+Let/const and var perform differently when it comes 
+to blocks/functions (which use {}).
+
+Attention une variable à l'intérieur d'une fonction 
+qui serait déclarée sans let/const devient globale (accessible
+depuis l'extérieur de la fonction )
+
+***************
+VARIABLE LOOKUP
+***************
+
+const globalNumber = 10;
+
+function add (num1, num2){
+    const globalNumber = 20;
+    let addResult = num1 + num2 + globalNumber;
+    log(addResult);                 /* 27 */
+    
+
+    function multiply() {
+    <---!  const globalNumber = 5; --->   
+        let multiplyResult = addResult * globalNumber; /* addResult est visible !!!  */
+        log(multiplyResult);    /* 540 */ (20 * 27)
+    }
+   multiply();           /* On invoque multiply */
+
+   return addResult      /* On retourne addResult, sinon log(add(3, 4)) donne undefined */
+}
+
+log(add(3, 4))           /* On invoque add */
+
+***************************************************************
+CALL BACK, HIGHER ORDER FUNCTIONS, FIRST CLASS OBJECTS/CITIZENS
+***************************************************************
+- A higher order function is a function which takes another
+function as an argument or returns another function as a result.
+- A callback function is a function which is being passed
+to another function and executed in this function.
+
+-Ex1
+const log = console.log;
+
+let goodMorning = (fname) => {return(`Good morning ${fname}`)};
+
+let greet = (fname, cb) => {
+    let myName = 'Georges';
+    log(`My name is ${myName}, ${cb(fname)}`)
+}
+    
+greet('Tartampion', goodMorning);   //cb est remplacé par 'goodMorning' et fname par 'Tartampion' 
+
+goodMorning is a callback function !!!
+
+***************
+ARRAY ITERATORS
+***************
