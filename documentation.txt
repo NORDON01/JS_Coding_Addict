@@ -500,6 +500,115 @@ let greet = (votreNom, cb) => {
 
 greet('Max', goodMorning);
 
+The LOOKUP is always from the function inside to 
+the function outside (or at the function at the same level)!!!
+
 ***************
 ARRAY ITERATORS
 ***************
+forEach, map, filter, find, reduce.
+
+*******
+FOREACH
+*******
+forEach does not return a new array !!!
+On n'"invoke" pas la fonction, elle est simplement passée au forEach
+
+let people = [
+    {name:'bob', age:20, position: 'developer'},
+    {name:'peter', age:40, position: 'designer'},
+    {name:'suzan', age:25, position: 'the boss'}
+]
+
+/* -Ex1 */
+let showPerson = function (person) {
+    log(person.position.toUpperCase())
+}
+
+people.forEach(showPerson);//La liste des personnes s'affiche ! Pas d'"invoke"
+
+/* -Ex2 */
+people.forEach(function(item){
+   log(item.position.toUpperCase());    //On utilise une fonction anonyme
+})
+
+***
+MAP
+***
+Very usefull !
+It does return a new array.
+It does not change the size of the original array.
+
+-Ex1
+let people = [
+    {name:'bob', age:20, position: 'developer'},
+    {name:'peter', age:25, position: 'designer'},
+    {name:'suzan', age:30, position: 'the boss'}
+]
+
+let newPeople = people.map(function(person){
+    log(person);
+    return {
+        fname: person.name.toUpperCase(),
+        age: person.age +20
+    }
+});
+
+log(newPeople);
+
+******
+FILTER
+******
+Filter returns a new array;
+But size of the array can be different from the original
+depending on condition;
+
+-Ex1
+let developers = people.filter(function (item) {
+    return item.position === 'developer';
+})
+
+log(developers);
+
+****
+FIND
+****
+Find returns a single item;
+It returns the first match;
+
+-Ex1
+const person1 = people.find(function(person){
+    return person.name === 'peter';
+})
+
+log(person1);
+log(person1.name);
+
+******
+REDUCE
+******
+  Reduce takes 2 parameters plus an initial value: 
+    - acc the accumulator which MUST BE RETURNED;
+    - curr (or currItem), the current item;
+  The initial value can be an integer, an array or an object.
+  Depending on the initial value, the accumulator (acc) will 
+  be an integer, an array or an object.
+
+
+let people = [
+    {name:'bob', age:20, position: 'developer', salary: 200},
+    {name:'peter', age:25, position: 'designer', salary: 300},
+    {name:'suzan', age:30, position: 'the boss', salary: 500},
+    {name:'anna',  age:35, position: 'the boss', salary: 500}
+]
+
+const total = people.reduce(function(acc, currItem){
+        log(`Total ${acc}`);
+        log(`Current money: ${currItem.salary}`);
+        acc += currItem.salary;
+    return acc;            //COMPULSORY    
+}, 0);                     //initial value 0 => acc will be an integer
+
+log(`Total : ${total}`);
+
+

@@ -1,12 +1,17 @@
-const log = console.log;
+const log = console.log;    //global scope
 
-let goodMorning = (yourName) => {return(`Good morning ${yourName}`)}
+let people = [
+    {name:'bob', age:20, position: 'developer', salary: 200},
+    {name:'peter', age:25, position: 'designer', salary: 300},
+    {name:'suzan', age:30, position: 'the boss', salary: 500},
+    {name:'anna',  age:35, position: 'the boss', salary: 500}
+]
 
-log(goodMorning('Toto'));
+const total = people.reduce(function(acc, currItem){
+        log(`Total ${acc}`);
+        log(`Current money: ${currItem.salary}`);
+        acc += currItem.salary;
+    return acc;            //COMPULSORY    
+}, 0);                     //initial value 0 => acc will be an integer
 
-let greet = (votreNom, cb) => {
-    const myName = 'Georges';
-    log(`My name is ${myName} ${cb(votreNom)}`)
-}
-
-greet('Max', goodMorning);
+log(`Total : ${total}`);
