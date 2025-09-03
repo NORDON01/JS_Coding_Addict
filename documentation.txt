@@ -488,6 +488,18 @@ greet('Tartampion', goodMorning);   //cb est remplacé par 'goodMorning' et fnam
 
 goodMorning is a callback function !!!
 
+-Ex2
+let goodMorning = (yourName) => {return(`Good morning ${yourName}`)}
+
+log(goodMorning('Toto'));
+
+let greet = (votreNom, cb) => {
+    const myName = 'Georges';
+    log(`My name is ${myName} ${cb(votreNom)}`)
+}
+
+greet('Max', goodMorning);
+
 ***************
 ARRAY ITERATORS
 ***************

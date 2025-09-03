@@ -1,12 +1,12 @@
 const log = console.log;
 
-num1 = 6;
-log(num1 + " is a " + typeof num1);
-num2 = "6";
-log(num2 + " is a " + typeof num2);
+let goodMorning = (yourName) => {return(`Good morning ${yourName}`)}
 
-let value = num1 == num2;
-log(value + " num1 equals num2");
+log(goodMorning('Toto'));
 
-value = num1 === num2;
-log(value + " num1 & num2 are not the same type");
+let greet = (votreNom, cb) => {
+    const myName = 'Georges';
+    log(`My name is ${myName} ${cb(votreNom)}`)
+}
+
+greet('Max', goodMorning);
