@@ -658,3 +658,23 @@ let averageScore = students.reduce(function (acc, student){
 },0)/students.length;
 
 log(`Average score: ${averageScore}`);
+
+***************
+SQUARE BRACKETS
+***************
+const subject = art;
+const total = {};             //un accumulateur (~acc)
+
+total[subject] = 'some value' //un accumulateur pour une valeur
+
+- Ex1
+let survey = students.reduce(function(survey, student){
+    let favSubject = student.favoriteSubject;
+
+    if(survey[favSubject]){survey[favSubject]++}
+    else{survey[favSubject] = 1};
+
+    return(survey)   
+}, {});
+
+log(survey);
