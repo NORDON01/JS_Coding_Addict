@@ -1,17 +1,36 @@
 const log = console.log;    //global scope
 
-let people = [
-    {name:'bob', age:20, position: 'developer', salary: 200},
-    {name:'peter', age:25, position: 'designer', salary: 300},
-    {name:'suzan', age:30, position: 'the boss', salary: 500},
-    {name:'anna',  age:35, position: 'the boss', salary: 500}
-]
+log(students);  
+//Ajout d'une propriété
+let newStudents = students.map(function(student){
+    student.role = 'student';
+    return student;
+})
 
-const total = people.reduce(function(acc, currItem){
-        log(`Total ${acc}`);
-        log(`Current money: ${currItem.salary}`);
-        acc += currItem.salary;
-    return acc;            //COMPULSORY    
-}, 0);                     //initial value 0 => acc will be an integer
+log (newStudents);
 
-log(`Total : ${total}`);
+//Sélection des meilleurs étudiants
+let highScores = students.filter(function(student){
+   return student.score >= 80;
+   //ou if(student.score >= 80){return student} 
+})
+
+log(highScores);
+
+//Sélection de l'étudiant avec l'id === 1
+let singleStudent = students.find(function(student){
+    return student.id === 1;
+})
+
+log (singleStudent);
+
+
+//Calcul du score moyen
+let averageScore = students.reduce(function (acc, student){
+    log(student.id);
+    log(`${acc}`);
+    acc += student.score;
+    return acc;
+},0)/students.length;
+
+log(`Average score: ${averageScore}`);

@@ -573,7 +573,7 @@ log(developers);
 ****
 FIND
 ****
-Find returns a single item;
+Find returns a single object (item);
 It returns the first match;
 
 -Ex1
@@ -611,4 +611,50 @@ const total = people.reduce(function(acc, currItem){
 
 log(`Total : ${total}`);
 
+**************
+MULTIPLE FILES
+**************
+  Il s'agit de créer un fichier de données 
+  "students.js" distinct du fichier "app.js".
+  Pour cela couper/coller l'array des "students" 
+  dans le fichier "students.js".
+  Puis dans le fichier "index.html" appeler le
+  fichier "students.js":
+    <script src="./students.js"></script>
 
+*********
+CHALLENGE
+*********
+log(students);  
+//Ajout d'une propriété
+let newStudents = students.map(function(student){
+    student.role = 'student';
+    return student;
+})
+
+log (newStudents);
+
+//Sélection des meilleurs étudiants
+let highScores = students.filter(function(student){
+   return student.score >= 80;
+   //ou if(student.score >= 80){return student} 
+})
+
+log(highScores);
+
+//Sélection de l'étudiant avec l'id === 1
+let singleStudent = students.find(function(student){
+    return student.id === 1;
+})
+
+log (singleStudent);
+
+//Calcul du score moyen
+let averageScore = students.reduce(function (acc, student){
+    log(student.id);
+    log(`${acc}`);
+    acc += student.score;
+    return acc;
+},0)/students.length;
+
+log(`Average score: ${averageScore}`);
