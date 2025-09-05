@@ -1,14 +1,27 @@
 const log = console.log;    //global scope
 
-log(students);
+const date = new Date();  //Possibilité d'utiliser une autre date 1/15/2005
+ const moiss = ['Janvier', 'Février', 'Mars', 'Avril',
+                      'Mai','Juin', 'Juillet', 'Août',
+                      'Septembre','Octobre', 'Novembre', 'Décembre'];
+      const jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi',
+                    'Jeudi', 'Vendredi', 'Samedi',]
 
-let survey = students.reduce(function(survey, student){
-    let favSubject = student.favoriteSubject;
+      let indexm = date.getMonth();
+      let mois = moiss[indexm]
+      log(mois);
+      
+      let indexj = date.getDay();
+      let joursem = jours[indexj];                                       
+      log(joursem);
 
-    if(survey[favSubject]){survey[favSubject]++}
-    else{survey[favSubject] = 1};
+      let jourmoi = date.getDate();
+      log(jourmoi);  
 
-    return(survey)   
-}, {});
+      let an = date.getFullYear();     
+      log(an);
 
-log(survey);
+      let sentence = `${joursem}, ${jourmoi} ${mois} ${an}`;
+      log(sentence); 
+
+      document.body.innerHTML = sentence;

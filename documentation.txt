@@ -678,3 +678,42 @@ let survey = students.reduce(function(survey, student){
 }, {});
 
 log(survey);
+
+***********
+MATH OBJECT
+***********
+Math.floor(number), Math.ceil(number),
+Math.sqrt(number),
+Math.PI,
+Math.min(3,5,8,1,50), Math.max(3,5,8,1,50),
+Math.random()   //De 0 à 0.9999999
+
+***********
+DATE OBJECT
+***********
+  1 - const date = new Date();  //Possibilité d'utiliser une autre date
+  2 - const moiss = ['Janvier', 'Février', 'Mars', 'Avril',
+                      'Mai','Juin', 'Juillet', 'Août',
+                      'Septembre',Octobre', 'Novembre', 'Décembre'];
+      const jours = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi',
+                    'Jeudi', 'Vendredi', 'Samedi',]
+
+  3 - 
+    let indexm = date.getMonth();
+      let mois = moiss[indexm]
+      log(mois);
+      
+      let indexj = date.getDay();
+      let joursem = jours[indexj];                                       
+      log(joursem);
+
+      let jourmoi = date.getDate();
+      log(jourmoi);  
+
+      let an = date.getFullYear();     
+      log(an);
+
+      let sentence = `${joursem}, ${jourmoi} ${mois} ${an}`;
+      log(sentence); 
+
+      document.body.innerHTML = sentence;
