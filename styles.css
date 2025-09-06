@@ -7,3 +7,9 @@
 p {
   background-color: aqua;
 }
+
+ul{
+  list-style:inside;
+  margin-left: 10px;
+}
+

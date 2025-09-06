@@ -717,3 +717,99 @@ DATE OBJECT
       log(sentence); 
 
       document.body.innerHTML = sentence;
+
+
+      /******************D O C U M E N T  O B J E C T  M O D E L ******************/
+
+    *******
+    THE DOM
+    *******
+      A node object or node list is an array like object.
+
+    *****************
+    WINDOW & DOCUMENT
+    *****************
+    - The window object ou "browser api";
+    document: une propriété de l'objet window. 
+    - On devrait écrire "window.document".
+    - console.dir(document); //Pour voir le contenu de window.document
+     
+**************
+GETELEMENTBYID
+**************
+const h1 = document.getElementById("title");
+log(h1);
+h1.style.color = "red";
+
+const btn = document.getElementById("btn");
+log(btn);
+btn.style.background = "blue";
+btn.style.color = "white"
+
+********************
+GETELEMENTSBYTAGNAME
+********************
+<body>
+    <h2 id="title">Hello world</h2>
+    <h2>Hello people</h2>
+
+    <ul class="result">
+      <li class="special">apple</li>
+      <li class>orange</li>
+      <li class="special">banana</li>
+      <li class=>pear</li>
+      <li class="special last">tomato</li>
+    </ul>
+    
+  </body>
+
+const headings = document.getElementsByTagName('h2');
+log(headings); //An HTML collection, unlike an array, cannot use forEach
+headings[0].style.color = 'red';  
+
+const fruits = document.getElementsByTagName('li');
+const fruitsArray = [...fruits]; //Spread changes fruits into an array
+fruitsArray.forEach(function(fruit){
+    log(fruit);
+})
+
+log(fruits);                    //Affiche HTML Collection
+log(fruitsArray);               //Affiche un Array
+
+**********************
+GETELEMENTSBYCLASSNAME
+**********************
+const log = console.log;    //global scope
+
+const fruits = document.getElementsByClassName('special');
+log(fruits);                //HTML Collection 
+
+fruits[2].style.color = 'red';
+
+let newFruits = [...fruits];
+log(newFruits);             //Array
+
+********************************
+QUERYSELECTOR - QUERYSELECTORALL
+********************************
+  Syntaxe: let item = document.querySelector('any selector');
+           let items = document.querySelectorAll('any selector');
+
+ const log = console.log;    //global scope
+
+const fruit = document.querySelector('.special');
+log(fruit);         //SÉLECTION DU 1er fruit de la classe ".special"  
+
+const fruits = document.querySelectorAll('.special');
+log(fruits);        //CECI EST UN ARRAY (une nodelist) => FOREACH est possible
+
+fruits.forEach(function(fruit){
+    log(fruit);
+})
+
+/********************** N A V I G A T E  T H E  D O M **********************/
+
+********
+CHILDREN
+********
+
