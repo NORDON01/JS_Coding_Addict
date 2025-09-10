@@ -801,7 +801,8 @@ const fruit = document.querySelector('.special');
 log(fruit);         //SÉLECTION DU 1er fruit de la classe ".special"  
 
 const fruits = document.querySelectorAll('.special');
-log(fruits);        //CECI EST UN ARRAY (une nodelist) => FOREACH est possible
+                    //BIEN INDIQUER '.' OU '#'
+log(fruits);        //CECI EST UN ARRAY (une NODELIST) => FOREACH est possible
 
 fruits.forEach(function(fruit){
     log(fruit);
@@ -812,4 +813,146 @@ fruits.forEach(function(fruit){
 ********
 CHILDREN
 ********
+- Ex1    
+ <ul id="result">
+      <li class="special">apple</li>
+      <li class>orange</li>
+      <li class="special">banana</li>
+      <li class=>pear</li>
+      <li class="special last">tomato</li> 
+    </ul>
 
+const log = console.log;            //global scope
+
+const fruits = document.q uerySelector('#result');
+log(fruits);                         //Retourne l'objet ul
+
+let children = fruits.children;     
+log(children);                      //Ceci est une HTML Collection
+
+log(children[0]);                   //'apple'
+log(fruits.firstChild);             //text ? node de type 3
+log(fruits.lastChild);              //text ? node de type 3
+
+L'utilisation de childnodes (!= children) génère des nodes 
+de type "text" là où il y a des blancs
+
+**************
+PARENT ELEMENT
+**************
+  <head>
+  .../..
+  </head>
+  <body>
+   <div id="result">
+    <h1>Hello world</h1>
+    <div class="second">
+      <h2>second heading</h2>
+      <h3>another heading</h3>
+    </div>
+   </div>
+  </body>
+
+  const heading1 = document.querySelector('h1');
+  log(heading1.parentElement);
+
+log(heading2.parentElement.parentElement);
+log(heading2.parentElement.parentElement.parentElement);
+log(heading2.parentElement.parentElement.parentElement.parentElement);
+
+***********************
+NEXT / PREVIOUS SIBLING
+***********************
+  <ul>
+      <li class="first">first</li>
+      <li>listItem2</li>
+      <li>listItem3</li>
+      <li id="last">last</li>
+  </ul>
+
+  /* next sibling */
+const first = document.querySelector('.first')
+let suivant = first.nextSibling.nextSibling;   //2 fois "nextSibling" sinon on tombe
+                                               // sur un blanc et "#text"
+let liste = document.querySelector('ul');
+log(liste);
+
+log(suivant.style.color= 'red');
+
+/* previous sibling */
+
+const last = document.querySelector('#last');
+log(last);
+
+let previous = last.previousSibling.previousSibling;
+log(previous);
+
+*******************************
+NEXT / PREVIOUS ELEMENT SIBLING
+*******************************
+Idem démarche précédente (previous / next sibling), 
+mais plus rapide:
+
+/* next element sibling */
+const first = document.querySelector('.first');
+log(first.nextElementSibling.style.color = 'red')
+
+
+/* previous element sibling */
+
+const last = document.querySelector('#last');
+log(last.previousElementSibling.style.color = 'yellow')
+
+*************************
+TEXT CONTENT & NODE VALUE
+*************************
+  A node list is an array like object.
+
+  <body>
+    <h1 id="special">This is a special content</h1>
+  </body>
+
+  //nodeValue
+const item  = document.getElementById('special');
+log(item.nodeValue);            //null
+log(item.childNodes);           //Node list wich is an array like object
+log(item.childNodes[0].nodeValue);
+//OU
+log(item.firstChild.nodeValue); //This is a special content
+
+//OU textContent
+log(item.textContent);          //This is a special content
+
+******************
+GET /SET ATTRIBUTE
+******************
+Syntaxe:
+  //Récupérer un élément:
+  const element = document.selector('type d'attribut');
+  //Récupérer la valeur d'un autre attribut de cet élément:
+  const attributValeur = element.getAttribute('un autre type d'attribut); 
+
+
+//GET ATTRIBUTE
+const first = document.querySelector('.first'); //Récupère 1er élément ".first"
+const classValue = first.getAttribute('id'); //1er attribut de type 'id'(class..)
+log(classValue);                             // valeur de l'attribut:"2emeAtt"
+//log(firstValue.textContent);               // text of class of first.
+
+const link = document.getElementById('link');
+const linkValue = link.getAttribute('href');
+log(linkValue);
+
+
+//SET ATTRIBUTE
+let allFirstElements = document.querySelectorAll('.first');
+log(allFirstElements);                       //NodeList
+
+const last = link.nextElementSibling;        //Récupérer le dernier élément
+log(last);
+last.setAttribute('class', 'first');               //Lui affecter une classe
+last.textContent = 'I now have a class attribute'; //et corriger le textContent
+log(last);
+
+allFirstElements = document.querySelectorAll('.first');
+log(allFirstElements);

@@ -10,6 +10,35 @@ p {
 
 ul{
   list-style:inside;
-  margin-left: 10px;
+  width:90%;
+  margin: 5rem calc(50% - 18.5px);
 }
+
+li{
+  font-size: 2rem;
+}
+
+ul{
+  background: blue;
+  color: white;
+  padding: 2rem 2rem;
+  width:15rem;
+  margin:5rem auto;
+}
+
+h1, .second{
+  width:60%;
+  margin:2rem auto;
+  text-align: center;
+
+}
+
+#link{
+  font-size: 2rem;
+  background: blue;
+  color: white;
+
+}
+
+
 
