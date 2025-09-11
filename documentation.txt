@@ -932,6 +932,11 @@ Syntaxe:
   //Récupérer la valeur d'un autre attribut de cet élément:
   const attributValeur = element.getAttribute('un autre type d'attribut); 
 
+<ul>
+    <li class="1erAtt first" id="2emeAtt">I have class of first</li>
+    <a href="first.html" id="link">random link</a>
+    <li>I have no attributes</li>
+</ul>
 
 //GET ATTRIBUTE
 const first = document.querySelector('.first'); //Récupère 1er élément ".first"
@@ -956,3 +961,45 @@ log(last);
 
 allFirstElements = document.querySelectorAll('.first');
 log(allFirstElements);
+
+*****************
+CLASS LIST / NAME
+*****************
+   <ul>
+    <h1 id="first" class="colors">I am first element</h1>
+    <h1 id="second">I am second element</h1>
+    <h1 id="third">I am third element</h1>
+  </ul>
+
+const first = document.getElementById('first');
+const second = document.getElementById('second');
+const third = document.getElementById('third');
+
+first.className = 'text';       //className 'text' replaces 'colors'
+log(first);
+
+second.classList.add('class1');
+log(second);
+second.classList.add('class2');
+log(second.classList);           //['class1', 'class2', value:'class1 class2']
+log(second.classList.value);     //class1 class2
+
+second.classList.remove('class1');
+
+****************************************
+CREATE ELEMENT / TEXTNODE - APPEND CHILD
+****************************************
+//Create empty 'div'
+const bodyDiv = document.createElement('div');
+//Create text node
+const text = document.createTextNode('A simple body div');
+//Append the text node to the bodyDiv
+bodyDiv.append(text);
+document.body.append(bodyDiv);
+bodyDiv.classList.add('blue');      //CSS
+log(bodyDiv);
+
+
+
+
+

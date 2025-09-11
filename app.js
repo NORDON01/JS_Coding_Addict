@@ -1,25 +1,19 @@
 const log = console.log;    //global scope
 
-//GET ATTRIBUTE
-const first = document.querySelector('.first'); //Récupère 1er élément ".first"
-const classValue = first.getAttribute('id'); //1er attribut de type 'id'(class..)
-log(classValue);                             // valeur de l'attribut:"2emeAtt"
-//log(firstValue.textContent);               // text of class of first.
 
-const link = document.getElementById('link');
-const linkValue = link.getAttribute('href');
-log(linkValue);
+//Create empty 'div'
+const bodyDiv = document.createElement('div');
+//Create text node
+const text = document.createTextNode('A simple body div');
+//Append the text node to the bodyDiv
+bodyDiv.append(text);
+document.body.append(bodyDiv);
+bodyDiv.classList.add('blue');      //CSS
+log(bodyDiv);
 
-
-//SET ATTRIBUTE
-let allFirstElements = document.querySelectorAll('.first');
-log(allFirstElements);                       //NodeList
-
-const last = link.nextElementSibling;
-log(last);
-last.setAttribute('class', 'first');
-last.textContent = 'I now have a class attribute';
-log(last);
-
-allFirstElements = document.querySelectorAll('.first');
-log(allFirstElements);   
+const heading = document.createElement('h2');
+const textHeading = document.createTextNode('dynamic heading');
+heading.append(textHeading);
+document.body.append(heading); 
+heading.classList.add('red');       //CSS
+log(heading);
