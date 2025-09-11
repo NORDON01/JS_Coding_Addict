@@ -999,7 +999,33 @@ document.body.append(bodyDiv);
 bodyDiv.classList.add('blue');      //CSS
 log(bodyDiv);
 
+*************
+INSERT BEFORE
+*************
+Syntaxe: insertBefore(element, location)
+On insère derrière un élément statique (pas un autre élément dynamique ?)
 
+const result = document.getElementById('result');//element statique
+log(result); 
 
+const heading = document.createElement('h2');
+const textHeading = document.createTextNode('dynamic heading');
+heading.append(textHeading);
 
+document.body.insertBefore(heading, result);    //object, location 
+heading.classList.add('red');      
 
+*************
+REPLACE CHILD
+*************
+Syntaxe: document.body.replaceChild(élément remplacé, élément remplaçant);
+
+- Ex1
+let smallHeading = document.createElement('h6');
+let smallHeadingText =document.createTextNode('I am small heading');
+smallHeading.append(smallHeadingText);
+smallHeading.classList.add('red');
+document.body.append(smallHeading);
+
+document.body.replaceChild(smallHeading, bodyDiv); 
+log(smallHeading);

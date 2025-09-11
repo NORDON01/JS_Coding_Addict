@@ -11,9 +11,22 @@ document.body.append(bodyDiv);
 bodyDiv.classList.add('blue');      //CSS
 log(bodyDiv);
 
+const result = document.getElementById('result');
+log(result); 
+
 const heading = document.createElement('h2');
 const textHeading = document.createTextNode('dynamic heading');
 heading.append(textHeading);
-document.body.append(heading); 
+
+document.body.insertBefore(heading, result); 
 heading.classList.add('red');       //CSS
+//document.body'.insertBefore(heading, bodyDiv);
 log(heading);
+let smallHeading = document.createElement('h6');
+let smallHeadingText =document.createTextNode('I am small heading');
+smallHeading.append(smallHeadingText);
+smallHeading.classList.add('red');
+document.body.append(smallHeading);
+
+document.body.replaceChild(smallHeading, bodyDiv);
+log(smallHeading);
